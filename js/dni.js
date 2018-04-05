@@ -42,27 +42,42 @@ function transformNIE(digitos) {
 }
 
 function limitDNI(object) {
-  if (object.value.length > 9)
+  if (object.value.length > 9) {
       object.value = object.value.slice(0, 9);
+  }
+  else if (object.value.length < 9) {
+      if(isNaN(object.value.slice(-1)))
+          object.value = object.value.slice(0, -1);
+  }
+  else if (object.value.length == 9){
+      if(isFinite(object.value.slice(-1)))
+          object.value = object.value.slice(0, -1);
+  }
 }
 
 $(document).ready(function() {
 
-    $('#nif').on('keydown', function(e){
+    $('#campo_nif_nie').on('keydown', function(e){
         if (e.which == 13) {
-          let numero = $(this).val().slice(0,8);
-          let letra = calculateChar(numero);
-          if ($(this).val().length == 8) {
-            if (letra) {
-              $(this).val(numero+letra);
-            }
-          }
-          if ($(this).val().length == 9) {
-            if ($(this).val().slice(-1).toUpperCase() !== letra) {
-              console.log("dni mal");
-            }
+          if ($('#NIFoNIE').val() == "NIF") {
+              let numero = $(this).val().slice(0,8);
+              let letra = calculateChar(numero);
+              if ($(this).val().length == 8) {
+                if (letra) {
+                  $(this).val(numero+letra);
+                }
+              }
+              if ($(this).val().length == 9) {
+                if ($(this).val().slice(-1).toUpperCase() !== letra) {
+                  console.log("dni mal");
+                }
+              }
           }
         }
     });
 
+    $(".dropdown-menu").on('click', 'a', function(){
+      $(".btn:first-child").text($(this).text());
+      $(".btn:first-child").val($(this).text());
+   });
 });
