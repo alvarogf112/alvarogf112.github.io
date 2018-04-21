@@ -1,5 +1,5 @@
 
-function calculateChar(digitos) {
+function DNIcalculateChar(digitos) {
     let char = parseInt(digitos)%23;
     switch(char) {
         case 0: return 'T';
@@ -29,7 +29,7 @@ function calculateChar(digitos) {
     }
 }
 
-function transformNIE(digitos) {
+function DNItransformNIE(digitos) {
     let letra = digitos.charAt(0);
     let resto = digitos.slice(1);
     letra = letra.toUpperCase();
@@ -66,7 +66,7 @@ $(document).ready(function() {
         if (e.which == 13) {
             if ($('#NIFoNIE').val() == "NIF") {
                 let numero = $(this).val().slice(0,8);
-                let letra = calculateChar(numero);
+                let letra = DNIcalculateChar(numero);
                 if ($(this).val().length == 8) {
                     if (letra) {
                         $(this).val(numero+letra);
@@ -81,8 +81,8 @@ $(document).ready(function() {
         }
     });
 
-    $(".dropdown-menu").on('click', 'a', function(){
-        $(".btn:first-child").text($(this).text());
-        $(".btn:first-child").val($(this).text());
+    $(".dropdown-menu a").on('click', function(){
+        $(this).parents('.input-group-prepend').find('.btn').text($(this).text());
+        $(this).parents('.input-group-prepend').find('.btn').val($(this).text());
     });
 });

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,28 +10,57 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/dni.js"></script>
+    <script src="js/iban.js"></script>
+    <script src="js/isbn.js"></script>
     <title>Teoría de códigos</title>
-  </head>
+</head>
 
-  <body>
-  	<div class="jumbotron text-center">
-  		<h1>Códigos detectores y correctores de errores</h1>
-  		<p>Xiang Chen y Álvaro García</p>
-  	</div>
-    	<div class="container">
-        <div class="col-md-4 mb-3">
-          <div class="input-group input-group-lg">
-              <div class="input-group-prepend">
-              <button id="NIFoNIE" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">NIF o NIE</button>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Códigos detectores y correctores de errores</h1>
+        <p>Xiang Chen y Álvaro García</p>
+    </div>
+    <div class="container">
+        <div class="col-md-8 mb-3">
+            <h1> DNI y NIE </h1>
+            <br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button id="NIFoNIE" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">NIF o NIE</button>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">NIF</a>
-                  <a class="dropdown-item" href="#">NIE</a>
+                  <a class="dropdown-item">NIF</a>
+                  <a class="dropdown-item">NIE</a>
                 </div>
-              </div>
-        		  <input type="text" id="campo_nif_nie" oninput="limitDNI(this)" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-    		</div>
-      </div>
-  </div>
-  	</div>
-  </body>
+                </div>
+                <input type="text" class="form-control">
+                <button type="button" class="btn btn-outline-primary">Calcular letra</button>
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button id="NIFoNIE1" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">NIF o NIE</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">NIF</a>
+                  <a class="dropdown-item">NIE</a>
+                </div>
+                </div>
+                <input type="text" class="form-control">
+                <button type="button" class="btn btn-outline-primary">Verificar</button>
+            </div>
+            <h1> ISBN </h1>
+            <br>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control">
+                <button type="button" class="btn btn-outline-primary">Verificar</button>
+            </div>
+            <h1> IBAN </h1>
+            <br>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control">
+                <button type="button" class="btn btn-outline-primary">Verificar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>
