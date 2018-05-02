@@ -51,7 +51,7 @@ $(document).ready(function() {
                     let letra = DNIcalculateChar(numero);
                     if ($(this).val().length == 8) {
                         if (letra) {
-                            $(this).val(numero+letra);
+                            $(this).val(numero+"-"+letra);
                         }
                     }
                 }
@@ -61,7 +61,7 @@ $(document).ready(function() {
                     let letra = DNIcalculateChar(numero);
                     if ($(this).val().length == 8) {
                         if (letra) {
-                            $(this).val(NIE+letra);
+                            $(this).val(NIE+"-"+letra);
                         }
                     }
                 }
@@ -82,7 +82,7 @@ $(document).ready(function() {
                 let letra = DNIcalculateChar(numero);
                 if ($('#dni_calcular_letra').val().length == 8) {
                     if (letra) {
-                        $('#dni_calcular_letra').val(numero+letra);
+                        $('#dni_calcular_letra').val(numero+"-"+letra);
                     }
                 }
             }
@@ -92,7 +92,7 @@ $(document).ready(function() {
                 let letra = DNIcalculateChar(numero);
                 if ($('#dni_calcular_letra').val().length == 8) {
                     if (letra) {
-                        $('#dni_calcular_letra').val(NIE+letra);
+                        $('#dni_calcular_letra').val(NIE+"-"+letra);
                     }
                 }
             }
