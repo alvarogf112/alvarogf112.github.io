@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="js/dni.js"></script>
+    <script src="js/isbn.js"></script>
     <title>Teoría de códigos</title>
 </head>
 
@@ -23,26 +23,21 @@
         <div class="col-md-8 mb-3">
             <ul class="nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link active" href="">DNI</a>
+                <a class="nav-link" href="index.html">DNI</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="isbn.html">ISBN</a>
+                <a class="nav-link active" href="">ISBN</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="iban.html">IBAN</a>
               </li>
             </ul>
             <br>
-            <h1> DNI y NIE </h1>
+            <h1> ISBN </h1>
             <br>
             <div class="input-group mb-3">
-                <input id="dni_calcular_letra" placeholder="DNI o NIE" maxlength="8" type="text" class="form-control">
-                <button id="boton_dni_calcular_letra" type="button" class="btn btn-outline-primary">Calcular letra</button>
-            </div>
-            <br>
-            <div class="input-group mb-3">
-                <input id="dni_verificar_letra" placeholder="DNI o NIE" maxlength="9" type="text" class="form-control">
-                <button id="boton_dni_verificar_letra" type="button" class="btn btn-outline-primary">Verificar letra</button>
+                <input type="text" class="form-control">
+                <button type="button" class="btn btn-outline-primary">Verificar</button>
             </div>
         </div>
     </div>
