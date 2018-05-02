@@ -65,6 +65,12 @@ $(document).ready(function() {
                         }
                     }
                 }
+                $(this).removeClass("is-invalid");
+                $(this).addClass("is-valid");
+            }
+            else if ($(this).val().length < 8) {
+                $(this).removeClass("is-valid");
+                $(this).addClass("is-invalid");
             }
         }
     });
@@ -90,6 +96,12 @@ $(document).ready(function() {
                     }
                 }
             }
+            $('#dni_calcular_letra').removeClass("is-invalid");
+            $('#dni_calcular_letra').addClass("is-valid");
+        }
+        else if ($('#dni_calcular_letra').val().length < 8) {
+            $('#dni_calcular_letra').removeClass("is-valid");
+            $('#dni_calcular_letra').addClass("is-invalid");
         }
     });
 
