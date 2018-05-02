@@ -41,42 +41,116 @@ function DNItransformNIE(digitos) {
     }
 }
 
-function limitDNI(object) {
-    if (!$('#NIFoNIE').val()) {
-        object.value = object.value.slice(0, -1);
-    }
-    if ($('#NIFoNIE').val() == "NIF") {
-        if (object.value.length > 9) {
-            object.value = object.value.slice(0, 9);
-        }
-        else if (object.value.length < 9) {
-            if(isNaN(object.value.slice(-1)))
-            object.value = object.value.slice(0, -1);
-        }
-        else if (object.value.length == 9){
-            if(isFinite(object.value.slice(-1)))
-            object.value = object.value.slice(0, -1);
-        }
-    }
-}
-
 $(document).ready(function() {
 
-    $('#campo_nif_nie').on('keydown', function(e){
+    $('#dni_calcular_letra').on('keydown', function(e){
         if (e.which == 13) {
-            if ($('#NIFoNIE').val() == "NIF") {
-                let numero = $(this).val().slice(0,8);
+            if($(this).val().length == 8){
+                if (!isNaN($(this).val())) {
+                    let numero = $(this).val().slice(0,8);
+                    let letra = DNIcalculateChar(numero);
+                    if ($(this).val().length == 8) {
+                        if (letra) {
+                            $(this).val(numero+letra);
+                        }
+                    }
+                }
+                else {
+                    let NIE = $(this).val();
+                    let numero = DNItransformNIE(NIE);
+                    let letra = DNIcalculateChar(numero);
+                    if ($(this).val().length == 8) {
+                        if (letra) {
+                            $(this).val(NIE+letra);
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    $('#boton_dni_calcular_letra').on('click', function(){
+        if($('#dni_calcular_letra').val().length == 8){
+            if (!isNaN($('#dni_calcular_letra').val())) {
+                let numero = $('#dni_calcular_letra').val().slice(0,8);
                 let letra = DNIcalculateChar(numero);
-                if ($(this).val().length == 8) {
+                if ($('#dni_calcular_letra').val().length == 8) {
                     if (letra) {
-                        $(this).val(numero+letra);
+                        $('#dni_calcular_letra').val(numero+letra);
                     }
                 }
-                if ($(this).val().length == 9) {
-                    if ($(this).val().slice(-1).toUpperCase() !== letra) {
-                        console.log("dni mal");
+            }
+            else {
+                let NIE = $('#dni_calcular_letra').val();
+                let numero = DNItransformNIE(NIE);
+                let letra = DNIcalculateChar(numero);
+                if ($('#dni_calcular_letra').val().length == 8) {
+                    if (letra) {
+                        $('#dni_calcular_letra').val(NIE+letra);
                     }
                 }
+            }
+        }
+    });
+
+    $('#dni_verificar_letra').on('keydown', function(e){
+        if (e.which == 13) {
+            if (!isNaN($(this).val().slice(0,8))) {
+                let numero = $(this).val().slice(0,8);
+                let letra = $(this).val().slice(-1);
+                let letraCalculada = DNIcalculateChar(numero);
+                if (letra.toUpperCase() === letraCalculada) {
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                }
+                else {
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                }
+            }
+            else {
+                let NIE = $(this).val().slice(0,8);
+                let letra = $(this).val().slice(-1);
+                let numero = DNItransformNIE(NIE);
+                let letraCalculada = DNIcalculateChar(numero);
+                if (letra.toUpperCase() === letraCalculada) {
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                }
+                else {
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                }
+            }
+        }
+    });
+
+    $('#boton_dni_verificar_letra').on('click', function(){
+        if (!isNaN($('#dni_verificar_letra').val().slice(0,8))) {
+            let numero = $('#dni_verificar_letra').val().slice(0,8);
+            let letra = $('#dni_verificar_letra').val().slice(-1);
+            let letraCalculada = DNIcalculateChar(numero);
+            if (letra.toUpperCase() === letraCalculada) {
+                $('#dni_verificar_letra').removeClass("is-invalid");
+                $('#dni_verificar_letra').addClass("is-valid");
+            }
+            else {
+                $('#dni_verificar_letra').removeClass("is-valid");
+                $('#dni_verificar_letra').addClass("is-invalid");
+            }
+        }
+        else {
+            let NIE = $('#dni_verificar_letra').val().slice(0,8);
+            let letra = $('#dni_verificar_letra').val().slice(-1);
+            let numero = DNItransformNIE(NIE);
+            let letraCalculada = DNIcalculateChar(numero);
+            if (letra.toUpperCase() === letraCalculada) {
+                $('#dni_verificar_letra').removeClass("is-invalid");
+                $('#dni_verificar_letra').addClass("is-valid");
+            }
+            else {
+                $('#dni_verificar_letra').removeClass("is-valid");
+                $('#dni_verificar_letra').addClass("is-invalid");
             }
         }
     });
