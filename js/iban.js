@@ -26,6 +26,35 @@ function IBAN_validate(iban){
                 IBAN_replaceChars(reordenado[i]));
         }
     }
-    console.log(modulo97(reordenado));
     return modulo97(reordenado)==1;
 }
+
+$(document).ready(function() {
+    $('#input_iban').on('keydown', function(e){
+        if (e.which == 13) {
+            let iban = $('#input_iban').val();
+            let isValid = IBAN_validate(iban);
+            if (isValid){
+                $('#input_iban').removeClass("is-invalid");
+                $('#input_iban').addClass("is-valid");
+            }
+            else{
+                $('#input_iban').removeClass("is-valid");
+                $('#input_iban').addClass("is-invalid");
+            }
+        }
+    });
+
+    $('#boton_verificar_iban').on('click',function(){
+        let iban = $('#input_iban').val();
+        let isValid = IBAN_validate(iban);
+        if (isValid){
+            $('#input_iban').removeClass("is-invalid");
+            $('#input_iban').addClass("is-valid");
+        }
+        else{
+            $('#input_iban').removeClass("is-valid");
+            $('#input_iban').addClass("is-invalid");
+        }
+    });
+});

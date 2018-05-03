@@ -34,10 +34,26 @@
             </ul>
             <br>
             <h1> IBAN </h1>
+            <p>Para realizar la validación de un IBAN es necesario seguir los siguientes pasos:</p>
+            <ul class="list-group">
+                <li class="list-group-item">Desplazar los 4 primeros caracteres al final:<br>
+                    BE62510007547061 → 510007547061BE62
+                </li>
+                <li class="list-group-item">Sustituir las letras por sus correspondientes dígitos:<br>
+                    510007547061BE62 → 510007547061111462
+                </li>
+                <li class="list-group-item">Comprobar que el resultado módulo 97 es 1.<br>
+                    510007547061111462 mod 97 = 1
+                </li>
+            </ul>
             <br>
+            <p> Para más información, consultar el siguiente documento del
+                <a href="http://www.cnb.cz/miranda2/export/sites/www.cnb.cz/cs/platebni_styk/iban/download/EBS204.pdf#page=12"> ECBS</a>.
+            </p>
+            <h3> Validación </h3>
             <div class="input-group mb-3">
-                <input type="text" class="form-control">
-                <button type="button" class="btn btn-outline-primary">Verificar</button>
+                <input id="input_iban" type="text" class="form-control">
+                <button id="boton_verificar_iban" type="button" class="btn btn-outline-primary">Verificar</button>
             </div>
         </div>
     </div>
