@@ -34,25 +34,29 @@
               <li class="nav-item">
                 <a class="nav-link" href="euro.html">EURO</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tarjetas.html">Tarjetas</a>
+              </li>
             </ul>
             <br>
             <h1> ISBN </h1>
-            <p>Para calcular el dígito de control para un ISBN de 13 dígitos es necesario seguir los siguientes pasos:</p>
-            <ul>
-                <li>Sumar los 12 primeros dígitos tras multiplar cada uno por el peso correspondiente (1 para las posiciones impares y 3 para las pares).
+            <p>Para calcular el dígito de control para un ISBN de longitud 13, es necesario seguir los siguientes pasos:</p>
+            <ul class="list-group">
+                <li class="list-group-item">Sumar los 12 primeros dígitos tras multiplar cada uno por el peso correspondiente (1 para las posiciones impares y 3 para las pares).
                 </li>
-                <li>Realizar la operación módulo 10 a la suma anterior, si el resto es 0 hemos terminado.
+                <li class="list-group-item">Realizar la operación módulo 10 a la suma anterior, si el resto es 0 hemos terminado.
                 </li>
-                <li>Si el resto es distinto de 0, el dígito de control es: 10 - resto.
+                <li class="list-group-item">Si el resto es distinto de 0, el dígito de control es: 10 - resto.
                 </li>
             </ul>
+            <br>
             <p> Para más información, consultar
                 <a href="https://www.isbn-international.org/sites/default/files/ISBN%20Manual%202012%20-corr.pdf#page=27"> el manual oficial</a>.
             <p>Ejemplo ISBN de 13 dígitos: 978-0-11-000222-4</p>
-            <h3> Verificación </h3>
+            <h3> Validación </h3>
             <div class="input-group mb-3">
                 <input id="input_isbn" type="text" placeholder="Ej: 978-0-11-000222-4" class="form-control">
-                <button id="boton_verificar_isbn" type="button" class="btn btn-outline-primary">Verificar</button>
+                <button id="boton_verificar_isbn" type="button" class="btn btn-outline-primary">Validar</button>
             </div>
         </div>
     </div>

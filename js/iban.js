@@ -16,7 +16,7 @@ function modulo97(iban) {
 }
 
 function IBAN_validate(iban){
-    let stringIBAN = iban.toString().replace(/\s/g, "");
+    let stringIBAN = iban.toString().replace(/[-\s]/g, "");
     let primeros = stringIBAN.slice(0,4);
     let resto = stringIBAN.slice(4);
     let reordenado = resto+primeros;

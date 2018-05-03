@@ -15,7 +15,7 @@ function ISBN13CalculateDigit(digitos){
 
 function ISBNValidate(isbn){
     let isbn_aux = isbn.toString();
-    isbn_aux = isbn_aux.replace(/-/g,"");
+    isbn_aux = isbn_aux.replace(/\D/g,"");
     if (isbn_aux.length != 13) return false;
     let ultimo = isbn_aux.slice(-1);
     let docePrimeros = isbn_aux.slice(0,12);
