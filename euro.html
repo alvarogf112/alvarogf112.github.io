@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="js/isbn.js"></script>
+    <script src="js/euro.js"></script>
     <title>Teoría de códigos</title>
 </head>
 
@@ -26,33 +26,30 @@
                 <a class="nav-link" href="index.html">NIF</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="">ISBN</a>
+                <a class="nav-link" href="">ISBN</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="iban.html">IBAN</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="euro.html">EURO</a>
+                <a class="nav-link active" href="euro.html">EURO</a>
               </li>
             </ul>
             <br>
-            <h1> ISBN </h1>
-            <p>Para calcular el dígito de control para un ISBN de 13 dígitos es necesario seguir los siguientes pasos:</p>
-            <ul>
-                <li>Sumar los 12 primeros dígitos tras multiplar cada uno por el peso correspondiente (1 para las posiciones impares y 3 para las pares).
+            <h1> EURO </h1>
+            <p>Uno de los mecanismos de seguridad de los billetes es su número de serie.</p>
+            <p>Para su validación sólo hay que hacer lo siguiente:</p>
+            <ul class="list-group">
+                <li class="list-group-item">Sustituir las letras por su valor ASCII.
                 </li>
-                <li>Realizar la operación módulo 10 a la suma anterior, si el resto es 0 hemos terminado.
-                </li>
-                <li>Si el resto es distinto de 0, el dígito de control es: 10 - resto.
+                <li class="list-group-item">Comprobar que el resultado módulo 9 es 0.
                 </li>
             </ul>
-            <p> Para más información, consultar
-                <a href="https://www.isbn-international.org/sites/default/files/ISBN%20Manual%202012%20-corr.pdf#page=27"> el manual oficial</a>.
-            <p>Ejemplo ISBN de 13 dígitos: 978-0-11-000222-4</p>
-            <h3> Verificación </h3>
+            <br>
+            <h3> Validación </h3>
             <div class="input-group mb-3">
-                <input id="input_isbn" type="text" placeholder="Ej: 978-0-11-000222-4" class="form-control">
-                <button id="boton_verificar_isbn" type="button" class="btn btn-outline-primary">Verificar</button>
+                <input id="input_euro" type="text" placeholder="Ej: VB6276821212" class="form-control">
+                <button id="boton_verificar_euro" type="button" class="btn btn-outline-primary">Verificar</button>
             </div>
         </div>
     </div>
