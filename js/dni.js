@@ -167,8 +167,4 @@ $(document).ready(function() {
         }
     });
 
-    $(".dropdown-menu a").on('click', function(){
-        $(this).parents('.input-group-prepend').find('.btn').text($(this).text());
-        $(this).parents('.input-group-prepend').find('.btn').val($(this).text());
-    });
 });

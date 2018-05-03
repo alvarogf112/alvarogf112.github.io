@@ -23,7 +23,7 @@
         <div class="col-md-8 mb-3">
             <ul class="nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">NIF/NIE</a>
+                <a class="nav-link" href="index.html">NIF</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="">ISBN</a>
@@ -34,10 +34,22 @@
             </ul>
             <br>
             <h1> ISBN </h1>
-            <br>
+            <p>Para calcular el dígito de control para un ISBN de 13 dígitos es necesario seguir los siguientes pasos:</p>
+            <ul>
+                <li>Sumar los 12 primeros dígitos tras multiplar cada uno por el peso correspondiente (1 para las posiciones impares y 3 para las pares).
+                </li>
+                <li>Realizar la operación módulo 10 a la suma anterior, si el resto es 0 hemos terminado.
+                </li>
+                <li>Si el resto es distinto de 0, el dígito de control es: 10 - resto.
+                </li>
+            </ul>
+            <p> Para más información, consultar
+                <a href="https://www.isbn-international.org/sites/default/files/ISBN%20Manual%202012%20-corr.pdf#page=27"> el manual oficial</a>.
+            <p>Ejemplo ISBN de 13 dígitos: 978-0-11-000222-4</p>
+            <h3> Verificación </h3>
             <div class="input-group mb-3">
-                <input type="text" class="form-control">
-                <button type="button" class="btn btn-outline-primary">Verificar</button>
+                <input id="input_isbn" type="text" placeholder="Ej: 978-0-11-000222-4" class="form-control">
+                <button id="boton_verificar_isbn" type="button" class="btn btn-outline-primary">Verificar</button>
             </div>
         </div>
     </div>
