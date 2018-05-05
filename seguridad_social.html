@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="js/iban.js"></script>
+    <script src="js/seguridad_social.js"></script>
     <title>Teoría de códigos</title>
 </head>
 
@@ -20,16 +20,16 @@
     </div>
 
     <div class="container">
-        <div class="col-md-8 mb-3">
+        <div class="col-md-11 mb-3">
             <ul class="nav nav-tabs">
               <li class="nav-item">
                 <a class="nav-link" href="index.html">NIF</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="isbn.html">ISBN</a>
+                <a class="nav-link" href="">ISBN</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="">IBAN</a>
+                <a class="nav-link" href="iban.html">IBAN</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="euro.html">EURO</a>
@@ -38,31 +38,34 @@
                 <a class="nav-link" href="tarjetas.html">Tarjetas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="seguridad_social.html">Seguridad Social</a>
+                <a class="nav-link active" href="">Seguridad Social</a>
               </li>
             </ul>
             <br>
-            <h1> IBAN </h1>
-            <p>Para realizar la validación de un IBAN es necesario seguir los siguientes pasos:</p>
+            <h1> Número de la seguridad social </h1>
+            <p>El número de la afiliación a la seguridad social está compuesto de:</p>
+            <ul>
+                <li>2 dígitos que representan la provincia donde se asigna el número.
+                </li>
+                <li> 8 dígitos que representan el número secuencial asignado.
+                </li>
+                <li>2 dígitos de control.
+                </li>
+            </ul>
+            <p>Para calcular los dígitos de control hay que seguir los siguientes pasos:</p>
             <ul class="list-group">
-                <li class="list-group-item">Desplazar los 4 primeros caracteres al final:<br>
-                    BE62510007547061 → 510007547061BE62
+                <li class="list-group-item">Concatenar el número de la provincia con el número asignado.
                 </li>
-                <li class="list-group-item">Sustituir las letras por sus correspondientes dígitos:<br>
-                    510007547061BE62 → 510007547061111462
+                <li class="list-group-item">Realizar la operación módulo 97.
                 </li>
-                <li class="list-group-item">Comprobar que el resultado módulo 97 es 1.<br>
-                    510007547061111462 mod 97 = 1
+                <li class="list-group-item">Si el resultado es menor que 10, añadir un 0 a la izquierda.
                 </li>
             </ul>
             <br>
-            <p> Para más información, consultar el siguiente documento del
-                <a href="http://www.cnb.cz/miranda2/export/sites/www.cnb.cz/cs/platebni_styk/iban/download/EBS204.pdf#page=12"> ECBS</a>.
-            </p>
             <h3> Validación </h3>
             <div class="input-group mb-3">
-                <input id="input_iban" placeholder="Ej: BE62 5100 0754 7061" type="text" class="form-control">
-                <button id="boton_verificar_iban" type="button" class="btn btn-outline-primary">Validar</button>
+                <input id="input_seguridad_social" type="text" placeholder="Ej: 35 10053353 04" class="form-control">
+                <button id="boton_verificar_seguridad_social" type="button" class="btn btn-outline-primary">Validar</button>
             </div>
         </div>
     </div>
